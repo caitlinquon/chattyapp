@@ -20,7 +20,7 @@ wss.on('connection', (ws) => {
       })
    }
   userCount++;
-  broadcast(JSON.stringify({type: 'countNotification', userCount: userCount }));
+  broadcast({type: 'countNotification', userCount: userCount });
 
   console.log('Client connected')
 
@@ -35,7 +35,7 @@ wss.on('connection', (ws) => {
           username: parsedMessage.username, 
           content: parsedMessage.content
         }
-        console.log("User " + newMessage.username + "said " + newMessage.content);
+        console.log("User " + newMessage.username + " said " + newMessage.content);
         broadcast(newMessage);
         break;
       case "usernameChange":
@@ -51,7 +51,7 @@ wss.on('connection', (ws) => {
     ws.on('close', () => {
       console.log('Client disconnected');
       userCount--;
-      broadcast(JSON.stringify({type: 'countNotification', userCount }));
+      broadcast(({type: 'countNotification', userCount }));
   });
 });
 
