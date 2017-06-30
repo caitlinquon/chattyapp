@@ -29,7 +29,7 @@ class App extends Component {
     
     this.ws.onmessage = (event) => {
       console.log(event.data);
-      const incomingMessage = JSON.parse(JSON.parse(event.data));
+      const incomingMessage = JSON.parse(event.data);
       switch (incomingMessage.type) {
         case "incomingMessage":
           const msgObj = {
