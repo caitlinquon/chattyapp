@@ -12,32 +12,46 @@ const server = express()
 
 // Create the WebSockets server
 const wss = new SocketServer({ server });
-
-// Set up a callback that will run when a client connects to the server
-// When a client connects they are assigned a socket, represented by
-// the ws parameter in the callback.
+let userCount = 0;
 wss.on('connection', (ws) => {
   function broadcast(msgObj) {
       wss.clients.forEach((client) => {
          client.send(JSON.stringify(msgObj));
       })
    }
-  console.log('Client connected');
-  ws.on('close', () => console.log('Client disconnected'));
+  userCount++;
+  broadcast(JSON.stringify({type: 'countNotification', userCount: userCount }));
 
-  ws.on('message', (message) => {
-    const parsedMessage = JSON.parse(message);
-  
-    if (parsedMessage.type === "sendMessage") {
-      const newMessage = {
-        id: UUID(),
-        username: parsedMessage.username, 
-        content: parsedMessage.content,
+  console.log('Client connected')
+
+  ws.on('message', (data) => {
+    console.log("hello");
+    const parsedMessage = JSON.parse(data);
+    switch (parsedMessage.type){
+      case "sendMessage":
+        const newMessage = {
+          id: UUID(),
+          type: "incomingMessage",
+          username: parsedMessage.username, 
+          content: parsedMessage.content
+        }
+        console.log("User " + newMessage.username + "said " + newMessage.content);
+        broadcast(newMessage);
+        break;
+      case "usernameChange":
+        const newNotification = {
+          id: UUID(),
+          type: "incomingNotification",
+          content: parsedMessage.content
+        }
+        broadcast(newNotification);
+        break;
       }
-      console.log("User", newMessage.username, "said", newMessage.content);
-   
-      broadcast(newMessage);
-    }
+    });
+    ws.on('close', () => {
+      console.log('Client disconnected');
+      userCount--;
+      broadcast(JSON.stringify({type: 'countNotification', userCount }));
   });
 });
 
