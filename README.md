@@ -4,7 +4,7 @@ ChattyApp
 A lightweight slack clone that incorporates skills such as ReactJS, websockets and Express
 
 ### Photos
-![ChattyApp](https://github.com/caitlinquon/tweetr/blob/master/docs/compose-box.png)
+![ChattyApp](https://github.com/caitlinquon/chattyapp/blob/master/docs/chattyApp.png)
 
 
 ### Getting Started
