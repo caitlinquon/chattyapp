@@ -9,7 +9,7 @@
 6 silly lifecycle chatty_server@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle chatty_server@1.0.0~start: chatty_server@1.0.0
 8 verbose lifecycle chatty_server@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle chatty_server@1.0.0~start: PATH: /home/vagrant/.nvm/versions/node/v6.9.5/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/chattyapp/chatty_server/node_modules/.bin:/home/vagrant/.nvm/versions/node/v6.9.5/bin:/home/vagrant/.rvm/gems/ruby-2.3.3/bin:/home/vagrant/.rvm/gems/ruby-2.3.3@global/bin:/home/vagrant/.rvm/rubies/ruby-2.3.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin
+9 verbose lifecycle chatty_server@1.0.0~start: PATH: /home/vagrant/.nvm/versions/node/v6.9.5/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/chattyapp/chatty_server/node_modules/.bin:/home/vagrant/.rvm/gems/ruby-2.3.3/bin:/home/vagrant/.rvm/gems/ruby-2.3.3@global/bin:/home/vagrant/.rvm/rubies/ruby-2.3.3/bin:/home/vagrant/.nvm/versions/node/v6.9.5/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin
 10 verbose lifecycle chatty_server@1.0.0~start: CWD: /vagrant/chattyapp/chatty_server
 11 silly lifecycle chatty_server@1.0.0~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle chatty_server@1.0.0~start: Returned: code: 1  signal: null
